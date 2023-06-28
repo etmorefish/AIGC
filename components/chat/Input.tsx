@@ -3,17 +3,7 @@ import React, { useState } from 'react'
 const { Header, Footer, Sider, Content } = Layout;
 const Input = () => {
     const [message, setMessage] = useState('');
-    const contentStyle: React.CSSProperties = {
-        textAlign: 'center',
-        color: '#fff',
-        backgroundColor: '#108ee9',
-      };
-      
-      const siderStyle: React.CSSProperties = {
-        textAlign: 'center',
-        color: '#fff',
-        backgroundColor: '#3ba0e9',
-      };
+
 
     const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMessage(event.target.value);
@@ -46,12 +36,7 @@ const Input = () => {
       </div>
     </div>
 
-    <Layout>
-      <Layout hasSider>
-        <Sider style={siderStyle} className='80%'>Sider</Sider>
-        <Content style={contentStyle}>Content</Content>
-      </Layout>
-    </Layout>
+
     
         </>
     )

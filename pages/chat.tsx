@@ -2,9 +2,21 @@ import Input from '@/components/chat/Input'
 import { DownloadOutlined } from '@ant-design/icons'
 import { Button } from 'antd'
 import Head from 'next/head'
-import React from 'react'
-
+import { Layout } from 'antd';
+import React, { useState } from 'react'
+const { Header, Footer, Sider, Content } = Layout;
 const chat = () => {
+  const contentStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#fff',
+    backgroundColor: '#108ee9',
+  };
+  
+  const siderStyle: React.CSSProperties = {
+    textAlign: 'center',
+    color: '#fff',
+    backgroundColor: '#3ba0e9',
+  };
   return (
     <>
       <Head>
@@ -16,13 +28,20 @@ const chat = () => {
 
       <div className='text-center text-gray-800 dark:text-gray-100 font-bold'>
 
-        <Input />
+       
         
-        <Button className='bg-sky-700 dark:bg-red-700' type="primary" shape="round" icon={<DownloadOutlined />} size={'small'} >
+        {/* <Button className='bg-sky-700 dark:bg-red-700' type="primary" shape="round" icon={<DownloadOutlined />} size={'small'} >
           Download
-        </Button>
+        </Button> */} 
+        
+      <Layout hasSider className='h-5/6'>
+        <Sider style={siderStyle} className='h-80'>Sider</Sider>
+        <Content style={contentStyle} className='h-80'> <Input /></Content>
+      </Layout>
       </div>
 
+        
+   
 
 
 
