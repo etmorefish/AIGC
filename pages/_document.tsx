@@ -1,17 +1,13 @@
-import Footer from '@/components/layout/footer'
-import Nav from '@/components/layout/nav'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en" className=''>
+    <Html lang="en">
       <Head />
-      <body className='bg-white dark:bg-black'>
-        <Nav />
+      <body className="bg-white dark:bg-black text-white dark:text-black">
         <Main />
         <NextScript />
       </body>
-      <Footer />
     </Html>
   )
 }
