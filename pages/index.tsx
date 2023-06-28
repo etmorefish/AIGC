@@ -12,13 +12,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="text-center text-gray-800 dark:text-gray-100 font-bold ">
-        Home
-        <div>
+      <div className=" text-center text-gray-800 dark:text-gray-100 font-bold ">
+        <div className="">
+          Home
+        </div>
+        <div className="">
           <Link href={'/chat'}>Chat</Link>
         </div>
-
-        <Button type="primary" className="dark: bg-sky-600"> Button</Button>
+        <div className="">
+          <Button type="primary" className="dark: bg-sky-600"> Button</Button>
+        </div>
       </div>
     </>
 
