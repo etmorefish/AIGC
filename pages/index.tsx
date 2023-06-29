@@ -1,29 +1,24 @@
 import Link from "next/link";
 import { Button } from "antd";
 import Head from "next/head";
+import RootLayout from "@/components/layout/RootLayout";
 
 export default function Home() {
 
   return (
-    <>
-      <Head>
-        <title>AIGC</title>
-        <meta name="description" content="A free platform by Eatmorefishs." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className=" text-center text-gray-800 dark:text-gray-100 font-bold ">
-        <div className="">
-          Home
+    <RootLayout meta={{
+      title: 'AIGC',
+      description: 'A free platform by Eatmorefishs.'
+    }}>
+      <main className="">
+        <div className="flex flex-row">
+          <div className="basis-1/4">01</div>
+          <div className="basis-1/4">02</div>
+          <div className="basis-1/2">03</div>
         </div>
-        <div className="">
-          <Link href={'/chat'}>Chat</Link>
-        </div>
-        <div className="">
-          <Button type="primary" className="dark: bg-sky-600"> Button</Button>
-        </div>
-      </div>
-    </>
+      </main>
+
+    </RootLayout>
 
 
   )

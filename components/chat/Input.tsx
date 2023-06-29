@@ -1,26 +1,20 @@
-import { Layout } from 'antd';
 import React, { useState } from 'react'
-const { Header, Footer, Sider, Content } = Layout;
+
 const Input = () => {
-    const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('');
+  const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(event.target.value);
+  };
 
+  const handleSendMessage = () => {
+    // 在这里处理发送消息的逻辑
+    console.log('发送消息:', message);
+    setMessage(''); // 清空消息输入框
+  };
 
-    const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setMessage(event.target.value);
-      };
-    
-      const handleSendMessage = () => {
-        // 在这里处理发送消息的逻辑
-        console.log('发送消息:', message);
-        setMessage(''); // 清空消息输入框
-      };
-
-    return (
-        <>
-    <div className="flex flex-col h-screen items-center bg-gray-100 dark:bg-gray-900">
-      <div className="flex-grow"></div>
-      
-      <div className="w-full bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 flex flex-row">
+  return (
+    <>
+      <div className="flex flex-row  relative w-full bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 ">
         <input
           type="text"
           value={message}
@@ -36,12 +30,8 @@ const Input = () => {
           发送
         </button>
       </div>
-    </div>
-
-
-    
-        </>
-    )
+    </>
+  )
 }
 
 export default Input

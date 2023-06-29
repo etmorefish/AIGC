@@ -1,10 +1,7 @@
 import Input from '@/components/chat/Input'
-import { DownloadOutlined } from '@ant-design/icons'
-import { Button } from 'antd'
 import Head from 'next/head'
-import { Layout } from 'antd';
 import React, { useState } from 'react'
-const { Header, Footer, Sider, Content } = Layout;
+import RootLayout from '@/components/layout/RootLayout';
 const chat = () => {
   const contentStyle: React.CSSProperties = {
     textAlign: 'center',
@@ -26,21 +23,14 @@ const chat = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='text-center text-gray-800 dark:text-gray-100 font-bold'>
-
-
-
-        {/* <Button className='bg-sky-700 dark:bg-red-700' type="primary" shape="round" icon={<DownloadOutlined />} size={'small'} >
-          Download
-        </Button> */}
-
-        <Layout hasSider className='h-screen'>
-        <Sider style={siderStyle} className=''>Sider</Sider> 
-        <Content style={contentStyle} className=''> <Input /></Content>
-      </Layout>
-      </div>
-
-
+      <RootLayout meta={{
+        title: 'AIGC',
+        description: 'A free platform by Eatmorefishs.'
+      }}>
+        <div className='flex text-center text-gray-800 dark:text-gray-100 font-bold'>
+          <Input />
+        </div>
+      </RootLayout>
     </>
   )
 }
