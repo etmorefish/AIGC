@@ -11,7 +11,7 @@ const chat = () => {
     color: '#fff',
     backgroundColor: '#108ee9',
   };
-  
+
   const siderStyle: React.CSSProperties = {
     textAlign: 'center',
     color: '#fff',
@@ -28,21 +28,17 @@ const chat = () => {
 
       <div className='text-center text-gray-800 dark:text-gray-100 font-bold'>
 
-       
-        
+
+
         {/* <Button className='bg-sky-700 dark:bg-red-700' type="primary" shape="round" icon={<DownloadOutlined />} size={'small'} >
           Download
-        </Button> */} 
-        
-      <Layout hasSider className='h-5/6'>
-        <Sider style={siderStyle} className='h-80'>Sider</Sider>
-        <Content style={contentStyle} className='h-80'> <Input /></Content>
+        </Button> */}
+
+        <Layout hasSider className='h-screen'>
+        <Sider style={siderStyle} className=''>Sider</Sider> 
+        <Content style={contentStyle} className=''> <Input /></Content>
       </Layout>
       </div>
-
-        
-   
-
 
 
     </>

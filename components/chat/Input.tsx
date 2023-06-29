@@ -17,7 +17,9 @@ const Input = () => {
 
     return (
         <>
-    <div className=" justify-center items-center bg-gray-100 dark:bg-gray-900">
+    <div className="flex flex-col h-screen items-center bg-gray-100 dark:bg-gray-900">
+      <div className="flex-grow"></div>
+      
       <div className="w-full bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 flex flex-row">
         <input
           type="text"
