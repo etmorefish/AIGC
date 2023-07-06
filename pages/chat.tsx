@@ -2,18 +2,35 @@ import Input from '@/components/chat/Input'
 import Head from 'next/head'
 import React, { useState } from 'react'
 import RootLayout from '@/components/layout/rootLayout';
-const chat = () => {
-  const contentStyle: React.CSSProperties = {
-    textAlign: 'center',
-    color: '#fff',
-    backgroundColor: '#108ee9',
-  };
+import { Chat } from '@/components/chat/chat';
 
-  const siderStyle: React.CSSProperties = {
-    textAlign: 'center',
-    color: '#fff',
-    backgroundColor: '#3ba0e9',
-  };
+
+export type ROUT_TYPE = "user" | "assistant" | "system";
+export interface Conversation {
+  role: ROUT_TYPE;
+  content: string;
+}
+
+export enum ROLES {
+  USER = "user",
+  ASSISTANT = "assistant",
+  SYSTEM = "system",
+}
+
+const chat = () => {
+
+  const [errMsg, setErrMsg] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  const [conversations, setConversations] = useState<Conversation[]>([
+    {
+      role: ROLES.SYSTEM,
+      content: "You are a helpful assistant. Answer in detail.",
+    },
+  ]);
+
+
+
   return (
     <>
       <Head>
@@ -27,8 +44,16 @@ const chat = () => {
         title: 'AIGC',
         description: 'A free platform by Eatmorefishs.'
       }}>
-        <div className='flex text-center text-gray-800 dark:text-gray-100 font-bold'>
-          <Input />
+        <div className='flex w-full flex-1 flex-col  items-center text-center text-gray-800 dark:text-gray-100 font-bold'>
+          <div className='mt-16 flex w-full flex-1 flex-col items-center text-center'>
+            <Chat conversations={conversations} saving={saving} />
+          </div>
+          <Input
+            conversations={conversations}
+            updateConversations={setConversations}
+            updateErrMsg={setErrMsg}
+            updateSavingStatus={setSaving}
+          />
         </div>
       </RootLayout>
     </>
