@@ -1,7 +1,7 @@
 import Input from '@/components/chat/Input'
 import Head from 'next/head'
 import React, { useState } from 'react'
-import RootLayout from '@/components/layout/RootLayout';
+import RootLayout from '@/components/layout/rootLayout';
 const chat = () => {
   const contentStyle: React.CSSProperties = {
     textAlign: 'center',

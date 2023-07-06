@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "antd";
 import Head from "next/head";
-import RootLayout from "@/components/layout/RootLayout";
+import RootLayout from "@/components/layout/rootLayout";
 
 export default function Home() {
 

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react'
-import Nav from './Nav';
-import Footer from './Footer';
+import Nav from './nav';
+import Footer from './footer';
 
 const RootLayout = ({children, meta}: any) => {
     const {title, description, icon} = meta;
