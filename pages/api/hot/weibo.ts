@@ -9,8 +9,6 @@ export default async function handler(
     try {
         const response = await fetch('https://hot-api.zhaoyeqing.cn/weibo/');
         const data = await response.json();
-        console.log("req: ", req)
-        console.log("res: ", res)
         res.status(200).json(data);
     } catch (error) {
         res.status(500).json({ message: 'An error occurred' });

@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hot__cards-wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 p-14;
+}
+.hot-card{
+  @apply p-1
+}
+
+.hot-card__content {
+  @apply p-1
+}
+
+.hot-card__content-title{
+  @apply p-1
+}
