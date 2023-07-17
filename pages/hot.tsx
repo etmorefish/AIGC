@@ -2,7 +2,6 @@ import Weibo from "@/components/hot/weibo";
 import React from "react";
 
 const hot = () => {
-  
   return (
     <main>
       <div className="hot__cards-wrapper">

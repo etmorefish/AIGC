@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* -----------------------------------start index page css---------------------------- */
+.index__cards-wrapper {
+  @apply grid 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 w-full gap-16 px-28 pt-8;
+}
+
+
+
+/* -----------------------------------end index page css---------------------------- */
+
+/* -----------------------------------start chat page css---------------------------- */
+
+
+
+
+/* -----------------------------------end chat page css---------------------------- */
+
+/* -----------------------------------start hot page css---------------------------- */
 .hot__cards-wrapper {
   @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 p-14;
 }
@@ -16,3 +34,4 @@
 .hot-card__content-title{
   @apply p-1
 }
+/* -----------------------------------end hot page css---------------------------- */

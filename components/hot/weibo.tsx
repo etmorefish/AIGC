@@ -52,7 +52,7 @@ const WeiBo = () => {
           <div
             className={`w-6 h-6 rounded-full mr-2 flex items-center justify-center ${
               index < 3
-                ? `bg-red-${7 - index}00 text-white` // 前三条记录红底白字，颜色递减
+                ? `bg-red-${7-index}00 text-white` // 前三条记录红底白字，颜色递减
                 : 'bg-gray-200 text-black' // 剩余记录灰底黑字
             }`}
           >
