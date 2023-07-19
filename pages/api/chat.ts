@@ -17,7 +17,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
 
   const body: Body = await req.json();
 
-  console.log("body2: ", body);
 
   const payload = {
     model: process.env.MODEL || "gpt-3.5-turbo",

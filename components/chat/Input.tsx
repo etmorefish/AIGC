@@ -1,5 +1,5 @@
 import { Conversation, ROLES } from '@/pages/chat';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 
 interface Props {
@@ -40,8 +40,8 @@ const Input = (props: Props) => {
     };
 
     payload = [...conversations, currentQuestion]
-    updateConversations(payload);
-    fetchData(payload);
+    let n = 3;
+    fetchData(payload, n);
     setMessage("");
   }
 
@@ -62,11 +62,12 @@ const Input = (props: Props) => {
   }
 
   // 获取数据
-  function fetchData(payload: Conversation[]) {
+  function fetchData(payload: Conversation[], n: number) {
     setSubmitLoading(true);
 
+    let num = n*2 + 1
     const body = {
-      messages: payload
+      messages: payload.slice(-(num))
     };
     console.log("body: ", body);
     fetch(`${location.origin}/api/chat`, {
@@ -102,6 +103,7 @@ const Input = (props: Props) => {
                   content: storeMsg.toString(),
                 };
                 updateConversations([...payload, curQuestion]);
+                localStorage.setItem('westorg', JSON.stringify([...payload, curQuestion]));
               }
               read();
             })
@@ -112,7 +114,6 @@ const Input = (props: Props) => {
         }
 
         read();
-
       })
       .catch((err) => {
         updateErrMsg(err.toString());
@@ -140,6 +141,7 @@ const Input = (props: Props) => {
     console.log('发送消息:', message);
     setMessage(''); // 清空消息输入框
   };
+
 
   // 导出为图片
   // function handleSave() {

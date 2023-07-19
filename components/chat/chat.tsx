@@ -23,16 +23,16 @@ export const Chat = (props: Props) => {
 
     return (
         <div
-            className="w-full max-w-5xl text-left font-sans leading-tight bg-orange-300 dark:text-slate-200">
+            className="w-full max-w-5xl text-left font-sans leading-tight   h-[700px] overflow-y-auto snap-y">
             Chat ..........................................................
             {conversations && conversations.length > 1
                 ? conversations
-                    .filter((item: Conversation) => item.role !== ROLES.SYSTEM)
+                    // .filter((item: Conversation) => item.role !== ROLES.SYSTEM)
                     .map((item: Conversation, index: number) => {
                         return (
                         <div 
                         key={index}
-                        className="w-full px-4 py-5 text-slate-200"
+                        className="w-full px-4 py-5 snap-end"
                         > 
                         {item.role}:  {item.content}
                         </div>

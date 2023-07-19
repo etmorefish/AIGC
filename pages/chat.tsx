@@ -1,9 +1,9 @@
-import Input from '@/components/chat/Input'
-import Head from 'next/head'
-import React, { useState } from 'react'
-import RootLayout from '@/components/layout/rootLayout';
-import { Chat } from '@/components/chat/chat';
-
+import Input from "@/components/chat/Input";
+import Head from "next/head";
+import React, { useEffect, useState } from "react";
+import RootLayout from "@/components/layout/rootLayout";
+import { Chat } from "@/components/chat/chat";
+import { type } from "os";
 
 export type ROUT_TYPE = "user" | "assistant" | "system";
 export interface Conversation {
@@ -18,7 +18,6 @@ export enum ROLES {
 }
 
 const chat = () => {
-
   const [errMsg, setErrMsg] = useState("");
   const [saving, setSaving] = useState(false);
 
@@ -29,7 +28,14 @@ const chat = () => {
     },
   ]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && localStorage.getItem("westorg")) {
+      let item = localStorage.getItem("westorg") as string;
+      setConversations(JSON.parse(item)) ;
+    }
+  }, []);
 
+  console.log("chat conv", conversations);
 
   return (
     <>
@@ -40,12 +46,14 @@ const chat = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <RootLayout meta={{
-        title: 'AIGC',
-        description: 'A free platform by Eatmorefishs.'
-      }}>
-        <div className='flex w-full flex-1 flex-col  items-center text-center text-gray-800 dark:text-gray-100 font-bold'>
-          <div className='mt-16 flex w-full flex-1 flex-col items-center text-center'>
+      <RootLayout
+        meta={{
+          title: "AIGC",
+          description: "A free platform by Eatmorefishs.",
+        }}
+      >
+        <div className="flex w-full flex-1 flex-col   items-center text-center text-gray-800 dark:text-gray-100 font-bold">
+          <div className="mt-16 flex w-full flex-1 flex-col  items-center text-center ">
             <Chat conversations={conversations} saving={saving} />
           </div>
           <Input
@@ -57,7 +65,7 @@ const chat = () => {
         </div>
       </RootLayout>
     </>
-  )
-}
+  );
+};
 
-export default chat
+export default chat;
