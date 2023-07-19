@@ -5,7 +5,7 @@ import ThemeSwitch from '@/components/themeSwitch';
 export default function Nav() {
     return (
         <>
-            <div className=" flex h-16 max-w-full items-center justify-between xl:mx-auto bg-sky-600 dark:bg-yellow-500">
+            <div className="flex  justify-between bg-sky-600 dark:bg-yellow-500">
                 <Link href="/" className=" flex m-4 items-center font-display text-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
                     <Image
                         src="/next.svg"

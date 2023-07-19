@@ -1,6 +1,5 @@
-import { Conversation, ROLES } from '@/pages/chat';
-import React, { useEffect, useRef, useState } from 'react'
-
+import { Conversation, ROLES } from "@/pages/chat";
+import React, { useEffect, useRef, useState } from "react";
 
 interface Props {
   conversations: Conversation[];
@@ -9,9 +8,7 @@ interface Props {
   updateSavingStatus: (msg: boolean) => void;
 }
 
-
 const Input = (props: Props) => {
-
   const {
     conversations,
     updateConversations,
@@ -20,7 +17,7 @@ const Input = (props: Props) => {
   } = props;
   const [isMoblie, setIsMoblie] = useState(false);
   const [submitLoading, setSubmitLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [saving, setSaving] = useState(false);
   const stop = useRef(false);
 
@@ -39,7 +36,7 @@ const Input = (props: Props) => {
       content: message.trim(),
     };
 
-    payload = [...conversations, currentQuestion]
+    payload = [...conversations, currentQuestion];
     let n = 3;
     fetchData(payload, n);
     setMessage("");
@@ -52,7 +49,7 @@ const Input = (props: Props) => {
         role: ROLES.SYSTEM,
         content: "You are a helpful assistant. Answer in detail.",
       },
-    ])
+    ]);
   }
 
   // 停止页面返回消息
@@ -65,9 +62,9 @@ const Input = (props: Props) => {
   function fetchData(payload: Conversation[], n: number) {
     setSubmitLoading(true);
 
-    let num = n*2 + 1
+    let num = n * 2 + 1;
     const body = {
-      messages: payload.slice(-(num))
+      messages: payload.slice(-num),
     };
     console.log("body: ", body);
     fetch(`${location.origin}/api/chat`, {
@@ -103,7 +100,10 @@ const Input = (props: Props) => {
                   content: storeMsg.toString(),
                 };
                 updateConversations([...payload, curQuestion]);
-                localStorage.setItem('westorg', JSON.stringify([...payload, curQuestion]));
+                localStorage.setItem(
+                  "westorg",
+                  JSON.stringify([...payload, curQuestion])
+                );
               }
               read();
             })
@@ -131,17 +131,15 @@ const Input = (props: Props) => {
     }
   }
 
-
   const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
   };
 
   const handleSendMessage = () => {
     // 在这里处理发送消息的逻辑
-    console.log('发送消息:', message);
-    setMessage(''); // 清空消息输入框
+    console.log("发送消息:", message);
+    setMessage(""); // 清空消息输入框
   };
-
 
   // 导出为图片
   // function handleSave() {
@@ -168,12 +166,12 @@ const Input = (props: Props) => {
 
   return (
     <>
-      <div className="my-10  w-full max-w-6xl text-center flex items-center bg-lime-500 px-4  dark:bg-gray-800   ">
+      <div className="flex  bg-lime-500 px-4  dark:bg-gray-800   ">
         <textarea
           // type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 mb-2 m-2"
+          className=" flex-1 resize-none bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 mb-2 m-2"
           placeholder={
             submitLoading
               ? "Waiting..."
@@ -185,19 +183,22 @@ const Input = (props: Props) => {
         <button
           onClick={handleSubmit}
           disabled={submitLoading}
-          className={`mt-3 h-10 w-40 rounded bg-black font-medium text-white hover:bg-slate-700 dark:bg-slate-300 dark:text-black dark:hover:bg-slate-400 ${submitLoading ? "animate-pulse" : ""}`}
+          className={`mt-3 h-10 w-40 rounded bg-black font-medium text-white hover:bg-slate-700 dark:bg-slate-300 dark:text-black dark:hover:bg-slate-400 ${
+            submitLoading ? "animate-pulse" : ""
+          }`}
         >
           {submitLoading ? "Waiting" : "Submit"}
         </button>
         <button
-          className={`ml-3 mt-3 h-10 w-14 rounded-md border border-black font-medium text-black hover:bg-slate-100 dark:border-slate-500 dark:text-slate-200 dark:hover:bg-slate-700 sm:mt-0 sm:w-28 ${submitLoading ? "animate-pulse" : ""
-            }`}
+          className={`ml-3 mt-3 h-10 w-14 rounded-md border border-black font-medium text-black hover:bg-slate-100 dark:border-slate-500 dark:text-slate-200 dark:hover:bg-slate-700 sm:mt-0 sm:w-28 ${
+            submitLoading ? "animate-pulse" : ""
+          }`}
           onClick={handleClear}
           disabled={submitLoading}
         >
           Clear
         </button>
-     
+
         {submitLoading ? (
           <button
             className={`fixed left-1/2 top-5 z-20 h-6 w-14 -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
@@ -210,8 +211,7 @@ const Input = (props: Props) => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Input
-
+export default Input;

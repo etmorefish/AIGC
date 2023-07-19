@@ -5,7 +5,7 @@
 
 /* -----------------------------------start index page css---------------------------- */
 .index__cards-wrapper {
-  @apply grid 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 w-full gap-16 px-28 pt-8;
+  @apply grid 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1  gap-16 px-28 pt-8;
 }
 
 

@@ -31,7 +31,7 @@ const chat = () => {
   useEffect(() => {
     if (typeof window !== "undefined" && localStorage.getItem("westorg")) {
       let item = localStorage.getItem("westorg") as string;
-      setConversations(JSON.parse(item)) ;
+      setConversations(JSON.parse(item));
     }
   }, []);
 
@@ -52,17 +52,38 @@ const chat = () => {
           description: "A free platform by Eatmorefishs.",
         }}
       >
-        <div className="flex w-full flex-1 flex-col   items-center text-center text-gray-800 dark:text-gray-100 font-bold">
-          <div className="mt-16 flex w-full flex-1 flex-col  items-center text-center ">
-            <Chat conversations={conversations} saving={saving} />
+        {/* <main className="w-full h-screen"> */}
+          <div className="flex flex-1  text-center text-gray-800 dark:text-gray-100 font-bold">
+            {/* <!-- sidebar --> */}
+            <div className="bg-gray-100 p-2 w-80 overflow-y-scroll">
+              <ul>
+                <li className="p-2 rounded text-green-500 mt-9 pt-7 hover:bg-gray-200">
+                  side 01
+                </li>
+                <li className="p-2 rounded text-green-500 mt-9 pt-7 hover:bg-gray-200">
+                  side 02
+                </li>
+                <li className="p-2 rounded text-green-500 mt-9 pt-7 hover:bg-gray-200">
+                  side 03
+                </li>
+              </ul>
+            </div>
+            {/* <!-- main content --> */}
+            <div className="flex flex-1 flex-col">
+              {/* <!-- chat content --> */}
+
+              <Chat conversations={conversations} saving={saving} />
+              {/* <!-- input --> */}
+
+              <Input
+                conversations={conversations}
+                updateConversations={setConversations}
+                updateErrMsg={setErrMsg}
+                updateSavingStatus={setSaving}
+              />
+            </div>
           </div>
-          <Input
-            conversations={conversations}
-            updateConversations={setConversations}
-            updateErrMsg={setErrMsg}
-            updateSavingStatus={setSaving}
-          />
-        </div>
+        {/* </main> */}
       </RootLayout>
     </>
   );

@@ -87,71 +87,7 @@ export const getStaticProps = async () => {
       user: "John",
       text: "Hi there!",
     },
-    {
-      id: 2,
-      user: "Mary",
-      text: "Hello John, how are you today?",
-    },
-    {
-      id: 1,
-      user: "John",
-      text: "Hi there!",
-    },
-    {
-      id: 2,
-      user: "Mary",
-      text: "Hello John, how are you today?",
-    },
-    {
-      id: 1,
-      user: "John",
-      text: "Hi there!",
-    },
-    {
-      id: 2,
-      user: "Mary",
-      text: "Hello John, how are you today?",
-    },
-    {
-      id: 1,
-      user: "John",
-      text: "Hi there!",
-    },
-    {
-      id: 2,
-      user: "Mary",
-      text: "Hello John, how are you today?",
-    },
-    {
-      id: 1,
-      user: "John",
-      text: "Hi there!",
-    },
-    {
-      id: 2,
-      user: "Mary",
-      text: "Hello John, how are you today?",
-    },
-    {
-      id: 1,
-      user: "John",
-      text: "Hi there!",
-    },
-    {
-      id: 2,
-      user: "Mary",
-      text: "Hello John, how are you today?",
-    },
-    {
-      id: 1,
-      user: "John",
-      text: "Hi there!",
-    },
-    {
-      id: 2,
-      user: "Mary",
-      text: "Hello John, how are you today?",
-    },
+  
     // more messages
   ];
 
@@ -172,30 +108,8 @@ export const getStaticProps = async () => {
       name: "Tech Talk",
       id: 2,
     },
-    {
-      name: "General",
-      id: 1,
-    },
-    {
-      name: "Tech Talk",
-      id: 2,
-    },
-    {
-      name: "General",
-      id: 1,
-    },
-    {
-      name: "Tech Talk",
-      id: 2,
-    },
-    {
-      name: "General",
-      id: 1,
-    },
-    {
-      name: "Tech Talk",
-      id: 2,
-    },
+ 
+
     // more channels
   ];
 
@@ -239,7 +153,7 @@ const about = ({ messages, channels }) => {
 
           {/* <!-- input --> */}
           <div className="flex p-2">
-            <textarea className="flex-1 mr-2 resize-none" />
+            <textarea className="flex-1 mr-2 border border-red-600 resize-none" />
             <button>Send</button>
           </div>
         </div>

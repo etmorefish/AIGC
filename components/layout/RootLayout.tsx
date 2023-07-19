@@ -12,9 +12,9 @@ const RootLayout = ({children, meta}: any) => {
         <meta name="description" content={description} />
         <link rel="icon" href={icon || "/favicon.ico"} />
     </Head>
-    <div className='h-screen'>
+    <div className='flex flex-col h-screen'>
         <Nav/>
-        <div className='flex-grow  flex-col overflow-auto'>{children}</div>
+        <div className='w-full overflow-hidden'>{children}</div>
         <Footer/>
     </div>
     </>

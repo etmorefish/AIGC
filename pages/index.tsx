@@ -13,7 +13,7 @@ export default function Home() {
         description: "A free platform by Eatmorefishs.",
       }}
     >
-      <main>
+      <main className="w-full">
         <div className="index__cards-wrapper">
           <Chat />
           <Hot />
