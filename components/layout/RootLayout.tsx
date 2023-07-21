@@ -14,7 +14,7 @@ const RootLayout = ({children, meta}: any) => {
     </Head>
     <div className='flex flex-col h-screen'>
         <Nav/>
-        <div className='w-full overflow-hidden'>{children}</div>
+          <div className="flex-1 w-full overflow-hidden">{children}</div>
         <Footer/>
     </div>
     </>

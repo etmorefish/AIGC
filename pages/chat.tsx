@@ -53,7 +53,7 @@ const chat = () => {
         }}
       >
         {/* <main className="w-full h-screen"> */}
-          <div className="flex flex-1  text-center text-gray-800 dark:text-gray-100 font-bold">
+          <div className="flex flex-1  text-center text-gray-800 dark:text-gray-100 font-bold h-full">
             {/* <!-- sidebar --> */}
             <div className="bg-gray-100 p-2 w-80 overflow-y-scroll">
               <ul>
