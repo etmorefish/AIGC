@@ -5,7 +5,7 @@ import ThemeSwitch from '@/components/themeSwitch';
 export default function Nav() {
     return (
         <>
-            <div className="flex  justify-between bg-sky-600 dark:bg-yellow-500">
+            <header className="flex  justify-between bg-sky-600 dark:bg-yellow-500">
                 <Link href="/" className=" flex m-4 items-center font-display text-2xl bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
                     <Image
                         src="/next.svg"
@@ -27,7 +27,7 @@ export default function Nav() {
                         Sign In
                     </button>
                 </div>
-            </div>
+            </header>
         </>
     );
 }
