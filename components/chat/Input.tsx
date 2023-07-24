@@ -166,12 +166,12 @@ const Input = (props: Props) => {
 
   return (
     <>
-      <div className="flex  bg-lime-500 px-4  dark:bg-gray-800   ">
+      <div className="flex p-4 m-4 border-solid border-2 border-[#059669] rounded-xl dark:bg-gray-800   ">
         <textarea
           // type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className=" flex-1 resize-none bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-2 mb-2 m-2"
+          className="flex-1 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-4 "
           placeholder={
             submitLoading
               ? "Waiting..."
@@ -183,14 +183,14 @@ const Input = (props: Props) => {
         <button
           onClick={handleSubmit}
           disabled={submitLoading}
-          className={`mt-3 h-10 w-40 rounded bg-black font-medium text-white hover:bg-slate-700 dark:bg-slate-300 dark:text-black dark:hover:bg-slate-400 ${
+          className={`m-3 p-3 text-center h-10  rounded bg-black font-medium text-white hover:bg-slate-700 dark:bg-slate-300 dark:text-black dark:hover:bg-slate-400 ${
             submitLoading ? "animate-pulse" : ""
           }`}
         >
           {submitLoading ? "Waiting" : "Submit"}
         </button>
         <button
-          className={`ml-3 mt-3 h-10 w-14 rounded-md border border-black font-medium text-black hover:bg-slate-100 dark:border-slate-500 dark:text-slate-200 dark:hover:bg-slate-700 sm:mt-0 sm:w-28 ${
+          className={`m-3 h-10 w-14 rounded-md border border-black font-medium text-black hover:bg-slate-100 dark:border-slate-500 dark:text-slate-200 dark:hover:bg-slate-700 ${
             submitLoading ? "animate-pulse" : ""
           }`}
           onClick={handleClear}

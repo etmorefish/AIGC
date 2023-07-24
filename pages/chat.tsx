@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import RootLayout from "@/components/layout/rootLayout";
 import { Chat } from "@/components/chat/chat";
 import { type } from "os";
+import Sidebar from "@/components/chat/sidebar";
 
 export type ROUT_TYPE = "user" | "assistant" | "system";
 export interface Conversation {
@@ -55,19 +56,7 @@ const chat = () => {
         {/* <main className="w-full h-screen"> */}
           <div className="flex flex-1  text-center text-gray-800 dark:text-gray-100 font-bold h-full">
             {/* <!-- sidebar --> */}
-            <div className="bg-gray-100 p-2 w-80 overflow-y-scroll">
-              <ul>
-                <li className="p-2 rounded text-green-500 mt-9 pt-7 hover:bg-gray-200">
-                  side 01
-                </li>
-                <li className="p-2 rounded text-green-500 mt-9 pt-7 hover:bg-gray-200">
-                  side 02
-                </li>
-                <li className="p-2 rounded text-green-500 mt-9 pt-7 hover:bg-gray-200">
-                  side 03
-                </li>
-              </ul>
-            </div>
+            <Sidebar />
             {/* <!-- main content --> */}
             <div className="flex flex-1 flex-col">
               {/* <!-- chat content --> */}

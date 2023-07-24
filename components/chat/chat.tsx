@@ -24,7 +24,11 @@ export const Chat = (props: Props) => {
             // .filter((item: Conversation) => item.role !== ROLES.SYSTEM)
             .map((item: Conversation, index: number) => {
               return (
-                <div key={index} className="px-4 py-5">
+                <div key={index} className={`rounded-xl  flex   border border-sky-300${
+                  item.role === ROLES.USER
+                    ? `text-right text-green-400`
+                    : 'text-left text-black'
+                }`}>
                   {item.role}: {item.content}
                 </div>
               );
