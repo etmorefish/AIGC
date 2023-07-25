@@ -204,7 +204,7 @@ const Input = (props: Props) => {
             className={`fixed left-1/2 bottom-60 z-40 p-2 m-2 -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
             onClick={handleStop}
           >
-            Stop Response
+          ◼︎ Stop Response
           </button>
         ) : (
           ""

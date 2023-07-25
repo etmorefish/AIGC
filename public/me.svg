@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" class="design-iconfont">
-  <path fill="#fff" d="M22 0A22 22 0 1 0 22 44A22 22 0 1 0 22 0Z"/>
-  <text transform="translate(12 26)" fill="#059669" font-size="14" font-family="SegoeUI-Semibold,Segoe UI" font-weight="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 19" class="design-iconfont">
+  <text transform="translate(0 15)" fill="#fff" font-size="14" font-family="MicrosoftYaHei,Microsoft YaHei">
     <tspan x="0" y="0">me</tspan>
   </text>
 </svg>
