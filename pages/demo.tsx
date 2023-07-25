@@ -141,7 +141,7 @@ const about = ({ messages, channels }) => {
     // 使用定时器来延迟设置 sidebarTransition 状态，确保过渡效果生效
     const timer = setTimeout(() => {
       setSidebarTransition(sidebarCollapsed);
-    }, 1000);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [sidebarCollapsed]);
@@ -202,7 +202,7 @@ const about = ({ messages, channels }) => {
             </p>
 
           {/* <!-- chat content --> */}
-          <div className="flex-1 p-2 overflow-y-auto">
+          <div className="flex-1 p-10 overflow-y-auto">
             {/* <!-- 聊天记录 --> */}
             {messages.map((m) => (
               <div key={m.id} className="p-2">

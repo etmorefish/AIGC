@@ -5,6 +5,10 @@ import RootLayout from "@/components/layout/rootLayout";
 import { Chat } from "@/components/chat/chat";
 import { type } from "os";
 import Sidebar from "@/components/chat/sidebar";
+import { SiderContext } from "antd/es/layout/Sider";
+import { sideContext } from "@/context/sideContext";
+import Image from "next/image";
+
 
 export type ROUT_TYPE = "user" | "assistant" | "system";
 export interface Conversation {
@@ -38,6 +42,12 @@ const chat = () => {
 
   console.log("chat conv", conversations);
 
+  // 控制侧边栏隐藏
+  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
+  const handleSidebarClick = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  };
+
   return (
     <>
       <Head>
@@ -54,12 +64,26 @@ const chat = () => {
         }}
       >
         {/* <main className="w-full h-screen"> */}
-          <div className="flex flex-1  text-center text-gray-800 dark:text-gray-100 font-bold h-full">
+          <div className="flex flex-1  dark:text-gray-100 font-bold h-full">
             {/* <!-- sidebar --> */}
-            <Sidebar />
+            <sideContext.Provider value={{sidebarCollapsed, setSidebarCollapsed, handleSidebarClick}}>
+     <Sidebar />
+            </sideContext.Provider>
+       
             {/* <!-- main content --> */}
             <div className="flex flex-1 flex-col">
               {/* <!-- chat content --> */}
+              <p  className={`${
+              sidebarCollapsed ? "" : "hidden"
+            } absolute p-2 m-2 pt-3 border border-md border-black hover:bg-slate-100`}
+            onClick={handleSidebarClick}>
+              <Image
+                src="/sidebar.svg"
+                alt="close sidebar"
+                width="16"
+                height="16"
+              ></Image>
+            </p>
 
               <Chat conversations={conversations} saving={saving} />
               {/* <!-- input --> */}

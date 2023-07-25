@@ -165,8 +165,8 @@ const Input = (props: Props) => {
   // }
 
   return (
-    <>
-      <div className="flex p-4 m-4 border-solid border-2 border-[#059669] rounded-xl dark:bg-gray-800   ">
+    // <>
+      <div className="flex relative  p-4  mx-10 border-solid border-2 border-[#059669] rounded-xl dark:bg-gray-800   ">
         <textarea
           // type="text"
           value={message}
@@ -209,8 +209,15 @@ const Input = (props: Props) => {
         ) : (
           ""
         )}
+                  <button
+            className={`fixed left-1/2 bottom-60 z-40 p-2 m-2  -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
+            onClick={handleStop}
+          >
+            Stop response
+          </button>
       </div>
-    </>
+    // </>
+    
   );
 };
 

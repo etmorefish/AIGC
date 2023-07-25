@@ -17,14 +17,14 @@ export const Chat = (props: Props) => {
   }, [conversations]);
 
   return (
-    <div className="flex-1 p-2  overflow-y-auto">
+    <div className="flex-1 px-10 pt-10 overflow-y-auto">
       {/* Chat .......................................................... */}
       {conversations && conversations.length > 1
         ? conversations
             // .filter((item: Conversation) => item.role !== ROLES.SYSTEM)
             .map((item: Conversation, index: number) => {
               return (
-                <div key={index} className={`rounded-xl  flex   border border-sky-300${
+                <div key={index} className={`rounded-xl  m-2 p-2 border border-sky-300 ${
                   item.role === ROLES.USER
                     ? `text-right text-green-400`
                     : 'text-left text-black'
