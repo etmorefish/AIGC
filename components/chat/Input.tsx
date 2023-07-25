@@ -201,20 +201,14 @@ const Input = (props: Props) => {
 
         {submitLoading ? (
           <button
-            className={`fixed left-1/2 top-5 z-20 h-6 w-14 -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
+            className={`fixed left-1/2 bottom-60 z-40 p-2 m-2 -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
             onClick={handleStop}
           >
-            Stop
+            Stop Response
           </button>
         ) : (
           ""
         )}
-                  <button
-            className={`fixed left-1/2 bottom-60 z-40 p-2 m-2  -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
-            onClick={handleStop}
-          >
-            Stop response
-          </button>
       </div>
     // </>
     
