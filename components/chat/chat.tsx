@@ -39,7 +39,6 @@ export const Chat = (props: Props) => {
             </div>
           );
         }
-
         // 机器人消息
         return (
           <div key={index} className="flex justify-start">

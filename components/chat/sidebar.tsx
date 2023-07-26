@@ -16,7 +16,7 @@ export default function Sidebar() {
         : "flex transition-all duration-1000 ease-out"
     }  flex-col bg-[#059669] p-2 w-96 `}>
       <div className="flex justify-between ">
-        <div className="flex-1 p-2 m-2 border border-black rounded-md">
+        <div className="flex-1 p-2 m-2 text-white border border-black rounded-md">
           + new one
         </div>
         <p

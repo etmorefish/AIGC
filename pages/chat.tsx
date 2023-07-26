@@ -3,9 +3,7 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import RootLayout from "@/components/layout/rootLayout";
 import { Chat } from "@/components/chat/chat";
-import { type } from "os";
 import Sidebar from "@/components/chat/sidebar";
-import { SiderContext } from "antd/es/layout/Sider";
 import { sideContext } from "@/context/sideContext";
 import Image from "next/image";
 
@@ -64,7 +62,7 @@ const chat = () => {
         }}
       >
         {/* <main className="w-full h-screen"> */}
-          <div className="flex flex-1  dark:text-gray-100 font-bold h-full">
+          <div className="flex flex-1  dark:text-gray-100 h-full">
             {/* <!-- sidebar --> */}
             <sideContext.Provider value={{sidebarCollapsed, setSidebarCollapsed, handleSidebarClick}}>
      <Sidebar />

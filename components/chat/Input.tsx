@@ -166,7 +166,7 @@ const Input = (props: Props) => {
 
   return (
     // <>
-      <div className="flex relative  p-4  mx-10 border-solid border-2 border-[#059669] rounded-xl dark:bg-gray-800   ">
+      <div className="flex relative  p-4  mx-10 my-2 border-solid border-2 border-[#059669] rounded-xl dark:bg-gray-800   ">
         <textarea
           // type="text"
           value={message}
