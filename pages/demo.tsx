@@ -195,18 +195,17 @@ const about = ({ messages, channels }) => {
                 <b>{m.user}</b> <br />
                 {/* {m.text} */}
                 <div>
-                  <ReactMarkdown
+                <ReactMarkdown
                       className="ml-2 flex-grow overflow-x-auto overflow-y-hidden whitespace-pre-wrap "
                       linkTarget="_blank"
                       remarkPlugins={[remarkGfm]}
                       components={{
                         code({ node, inline, className, children, ...props }) {
                           const match = /language-(\w+)/.exec(className || "");
-                          console.log("match: ", match);
-                          console.log("children: ", children);
                           return !inline ? (
                             <div className="relative">
                               <SyntaxHighlighter
+                                //@ts-ignore
                                 style={monoBlue}
                                 language={match ? match[1] : ""}
                                 PreTag="div"
@@ -215,6 +214,8 @@ const about = ({ messages, channels }) => {
                               >
                                 {String(children).replace(/\n$/, "")}
                               </SyntaxHighlighter>
+
+           
                             </div>
                           ) : (
                             <code className={className} {...props}>
