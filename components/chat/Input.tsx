@@ -1,5 +1,6 @@
 import { Conversation, ROLES } from "@/pages/chat";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface Props {
   conversations: Conversation[];
@@ -166,21 +167,21 @@ const Input = (props: Props) => {
 
   return (
     // <>
-      <div className="flex relative  p-4  mx-10 my-2 border-solid border-2 border-[#059669] rounded-xl dark:bg-gray-800   ">
-        <textarea
-          // type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="flex-1 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg p-4 "
-          placeholder={
-            submitLoading
-              ? "Waiting..."
-              : `Ask me anything. (cmd/Ctrl + enter to submit)`
-          }
-          onKeyDown={handleKeyDown}
-        />
-        {/* <div className="flex-grow"></div> 占据剩余空间 */}
-        <button
+    <div className="flex relative  p-2  mx-10 my-2 border-solid border-2 border-[#059669] rounded-xl dark:bg-gray-800   ">
+      <textarea
+        // type="text"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        className="flex-1 min-h-[100px] max-h-[200px] p-1 dark:bg-gray-800 overflow-y-hidden border-none outline-none"
+        placeholder={
+          submitLoading
+            ? "Waiting..."
+            : `Ask me anything. (cmd/Ctrl + enter to submit)`
+        }
+        onKeyDown={handleKeyDown}
+      />
+      {/* <div className="flex-grow"></div> 占据剩余空间 */}
+      {/* <button
           onClick={handleSubmit}
           disabled={submitLoading}
           className={`m-3 p-3 text-center h-10  rounded bg-black font-medium text-white hover:bg-slate-700 dark:bg-slate-300 dark:text-black dark:hover:bg-slate-400 ${
@@ -188,8 +189,33 @@ const Input = (props: Props) => {
           }`}
         >
           {submitLoading ? "Waiting" : "Submit"}
-        </button>
-        <button
+        </button> */}
+      <div className="flex flex-col-reverse px-2 justify-between">
+        <div>
+          <Image
+            src={"/send.svg"}
+            alt={"alt send"}
+            width={30}
+            height={30}
+            onClick={handleSubmit}
+            title={"Send message"}
+            className=""
+          ></Image>
+        </div>
+
+        <div>
+          <Image
+            src={"/trash.svg"}
+            alt={"alt send"}
+            width={24}
+            height={24}
+            onClick={handleClear}
+            title={"Delete chat history"}
+          ></Image>
+        </div>
+      </div>
+
+      {/* <button
           className={`m-3 h-10 w-14 rounded-md border border-black font-medium text-black hover:bg-slate-100 dark:border-slate-500 dark:text-slate-200 dark:hover:bg-slate-700 ${
             submitLoading ? "animate-pulse" : ""
           }`}
@@ -197,21 +223,20 @@ const Input = (props: Props) => {
           disabled={submitLoading}
         >
           Clear
-        </button>
+        </button> */}
 
-        {submitLoading ? (
-          <button
-            className={`fixed left-1/2 bottom-60 z-40 p-2 m-2 -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
-            onClick={handleStop}
-          >
+      {submitLoading ? (
+        <button
+          className={`fixed left-1/2 bottom-60 z-40 p-2 m-2 -translate-x-1/2 rounded border border-black font-normal text-black bg-red-500 dark:border-white dark:text-white`}
+          onClick={handleStop}
+        >
           ◼︎ Stop Response
-          </button>
-        ) : (
-          ""
-        )}
-      </div>
+        </button>
+      ) : (
+        ""
+      )}
+    </div>
     // </>
-    
   );
 };
 
