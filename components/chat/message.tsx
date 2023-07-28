@@ -3,6 +3,7 @@ import React from "react";
 interface Props {
   message: string;
 }
+// Message 弹窗
 export default function Message({ message }: Props) {
   return (
     <div
