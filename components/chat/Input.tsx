@@ -1,6 +1,9 @@
 import { Conversation, ROLES } from "@/pages/chat";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { toPng } from "html-to-image";
+import download from "downloadjs";
+import { useRouter } from "next/router";
 
 interface Props {
   conversations: Conversation[];
@@ -143,27 +146,27 @@ const Input = (props: Props) => {
   };
 
   // 导出为图片
-  // function handleSave() {
-  //   // cause we always have a system message at the first
-  //   if (conversations.length < 2) return;
-  //   setSaving(true);
-  //   updateSavingStatus(true);
+  function handleSave() {
+    // cause we always have a system message at the first
+    if (conversations.length < 2) return;
+    setSaving(true);
+    updateSavingStatus(true);
 
-  //   const node = document.getElementById("save-as-image");
-  //   if (node) {
-  //     toPng(node)
-  //       .then(function (dataUrl) {
-  //         setSaving(false);
-  //         updateSavingStatus(false);
-  //         download(dataUrl, "conversations.png");
-  //       })
-  //       .catch(function (error) {
-  //         setSaving(false);
-  //         updateSavingStatus(false);
-  //         updateErrMsg(`Oops, something went wrong: ${error}`);
-  //       });
-  //   }
-  // }
+    const node = document.getElementById("save-as-image");
+    if (node) {
+      toPng(node)
+        .then(function (dataUrl) {
+          setSaving(false);
+          updateSavingStatus(false);
+          download(dataUrl, "conversations.png");
+        })
+        .catch(function (error) {
+          setSaving(false);
+          updateSavingStatus(false);
+          updateErrMsg(`Oops, something went wrong: ${error}`);
+        });
+    }
+  }
 
   return (
     // <>
@@ -202,7 +205,17 @@ const Input = (props: Props) => {
             className=""
           ></Image>
         </div>
-
+        <div>
+          <Image
+            src={"/save_image.svg"}
+            alt={"save_image"}
+            width={24}
+            height={24}
+            onClick={handleSave}
+            title={"Save to image"}
+            className=""
+          ></Image>
+        </div>
         <div>
           <Image
             src={"/trash.svg"}

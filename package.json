@@ -15,7 +15,9 @@
     "@types/react-dom": "18.2.6",
     "@vercel/analytics": "^1.0.1",
     "autoprefixer": "10.4.14",
+    "downloadjs": "^1.4.7",
     "eventsource-parser": "^1.0.0",
+    "html-to-image": "^1.11.11",
     "next": "13.4.6",
     "next-themes": "^0.2.1",
     "postcss": "8.4.24",
@@ -29,6 +31,7 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
+    "@types/downloadjs": "^1.4.3",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-syntax-highlighter": "^15.5.7"
   }

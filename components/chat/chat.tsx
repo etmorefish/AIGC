@@ -23,8 +23,7 @@ export const Chat = (props: Props) => {
   }, [conversations]);
 
   return (
-    <div className="flex-1 px-10 pt-10 overflow-y-auto">
-      {/* 显示消息 */}
+    <div className="flex-1 px-10 pt-10 overflow-y-auto" id="save-as-image">
       {/* 显示消息 */}
       {conversations.map((item, index) => {
         // 用户消息
