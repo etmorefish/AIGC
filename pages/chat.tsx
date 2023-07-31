@@ -7,9 +7,10 @@ import Sidebar from "@/components/chat/sidebar";
 import { sideContext } from "@/context/sideContext";
 import Image from "next/image";
 
-
 export type ROUT_TYPE = "user" | "assistant" | "system";
 export interface Conversation {
+  id: Number;
+  date: string;
   role: ROUT_TYPE;
   content: string;
 }
@@ -26,6 +27,8 @@ const chat = () => {
 
   const [conversations, setConversations] = useState<Conversation[]>([
     {
+      id: Date.now(),
+      date: new Date().toLocaleString(),
       role: ROLES.SYSTEM,
       content: "You are a helpful assistant. Answer in detail.",
     },
@@ -62,19 +65,27 @@ const chat = () => {
         }}
       >
         {/* <main className="w-full h-screen"> */}
-          <div className="flex flex-1  dark:text-gray-100 h-full">
-            {/* <!-- sidebar --> */}
-            <sideContext.Provider value={{sidebarCollapsed, setSidebarCollapsed, handleSidebarClick}}>
-     <Sidebar />
-            </sideContext.Provider>
-       
-            {/* <!-- main content --> */}
-            <div className="flex flex-1 flex-col">
-              {/* <!-- chat content --> */}
-              <p  className={`${
-              sidebarCollapsed ? "" : "hidden"
-            } absolute p-2 m-2 pt-3 border border-md border-black hover:bg-slate-100`}
-            onClick={handleSidebarClick}>
+        <div className="flex flex-1  dark:text-gray-100 h-full">
+          {/* <!-- sidebar --> */}
+          <sideContext.Provider
+            value={{
+              sidebarCollapsed,
+              setSidebarCollapsed,
+              handleSidebarClick,
+            }}
+          >
+            <Sidebar />
+          </sideContext.Provider>
+
+          {/* <!-- main content --> */}
+          <div className="flex flex-1 flex-col">
+            {/* <!-- chat content --> */}
+            <p
+              className={`${
+                sidebarCollapsed ? "" : "hidden"
+              } absolute p-2 m-2 pt-3 border border-md border-black hover:bg-slate-100`}
+              onClick={handleSidebarClick}
+            >
               <Image
                 src="/sidebar.svg"
                 alt="close sidebar"
@@ -83,17 +94,17 @@ const chat = () => {
               ></Image>
             </p>
 
-              <Chat conversations={conversations} saving={saving} />
-              {/* <!-- input --> */}
+            <Chat conversations={conversations} saving={saving} />
+            {/* <!-- input --> */}
 
-              <Input
-                conversations={conversations}
-                updateConversations={setConversations}
-                updateErrMsg={setErrMsg}
-                updateSavingStatus={setSaving}
-              />
-            </div>
+            <Input
+              conversations={conversations}
+              updateConversations={setConversations}
+              updateErrMsg={setErrMsg}
+              updateSavingStatus={setSaving}
+            />
           </div>
+        </div>
         {/* </main> */}
       </RootLayout>
     </>

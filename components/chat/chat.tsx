@@ -6,6 +6,7 @@ import { atomOneDark } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { monoBlue } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import remarkGfm from "remark-gfm";
 import CopyBtn from "./copyBtn";
+import { FormatDate } from "@/utils/utils";
 interface Props {
   conversations: Conversation[];
   saving: boolean;
@@ -33,7 +34,7 @@ export const Chat = (props: Props) => {
               <div className="max-w-[75%] mr-4 p-2 rounded bg-gray-100 dark:bg-slate-900">
                 <p>{item.content}</p>
                 <p className="text-right text-xs text-gray-500">
-                  7/25/2023, 9:46:06 PM
+                  {/* 7/25/2023, 9:46:06 PM */}
                 </p>
               </div>
               <img
@@ -96,7 +97,9 @@ export const Chat = (props: Props) => {
                 />
               </div>
               <p className="text-left text-xs text-gray-500">
-                7/25/2023, 9:46:06 PM
+                {    // 解析字符串为Date对象
+                  FormatDate(item.date)
+                }
               </p>
             </div>
           </div>

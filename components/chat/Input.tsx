@@ -36,6 +36,8 @@ const Input = (props: Props) => {
     }
     updateErrMsg("");
     const currentQuestion = {
+      id: Date.now(),
+      date: new Date().toLocaleString(),
       role: ROLES.USER,
       content: message.trim(),
     };
@@ -50,6 +52,8 @@ const Input = (props: Props) => {
   function handleClear() {
     updateConversations([
       {
+        id: Date.now(),
+        date: new Date().toLocaleString(),
         role: ROLES.SYSTEM,
         content: "You are a helpful assistant. Answer in detail.",
       },
@@ -100,6 +104,8 @@ const Input = (props: Props) => {
               if (content) {
                 storeMsg += content;
                 const curQuestion: Conversation = {
+                  id: Date.now(),
+                  date: new Date().toLocaleString(),
                   role: ROLES.ASSISTANT,
                   content: storeMsg.toString(),
                 };
