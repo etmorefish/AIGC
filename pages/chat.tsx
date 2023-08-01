@@ -35,8 +35,8 @@ const chat = () => {
   ]);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && localStorage.getItem("westorg")) {
-      let item = localStorage.getItem("westorg") as string;
+    if (typeof window !== "undefined" && localStorage.getItem("chat-store")) {
+      let item = localStorage.getItem("chat-store") as string;
       setConversations(JSON.parse(item));
     }
   }, []);

@@ -44,6 +44,11 @@ const Input = (props: Props) => {
 
     payload = [...conversations, currentQuestion];
     let n = 3;
+     // 过滤字段,只保留 schema 定义的
+    payload = payload.map(msg => ({
+      role: msg.role,
+      content: msg.content
+    })) as Conversation[];
     fetchData(payload, n);
     setMessage("");
   }
@@ -111,7 +116,7 @@ const Input = (props: Props) => {
                 };
                 updateConversations([...payload, curQuestion]);
                 localStorage.setItem(
-                  "westorg",
+                  "chat-store",
                   JSON.stringify([...payload, curQuestion])
                 );
               }
