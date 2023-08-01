@@ -95,7 +95,7 @@ export const getStaticProps = async () => {
   };
 };
 
-const about = ({ messages, channels }) => {
+const about = ({ messages, channels }: any) => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [sidebarTransition, setSidebarTransition] = useState(false);
 
@@ -159,7 +159,7 @@ const about = ({ messages, channels }) => {
           </div>
           <div className="flex-1 bg-gray-500 p-2 w-80 overflow-y-scroll">
             <ul>
-              {channels.map((c) => (
+              {channels.map((c:any) => (
                 <li
                   key={c.id}
                   className="p-2 rounded text-green-500 mt-9 pt-7 hover:bg-gray-200"
@@ -190,7 +190,7 @@ const about = ({ messages, channels }) => {
           {/* <!-- chat content --> */}
           <div className="flex-1 p-10 overflow-y-auto">
             {/* <!-- 聊天记录 --> */}
-            {messages.map((m) => (
+            {messages.map((m: any) => (
               <div key={m.id} className="p-2 m-2 border rounded border-sky-300">
                 <b>{m.user}</b> <br />
                 {/* {m.text} */}

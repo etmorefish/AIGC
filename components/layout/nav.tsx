@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import ThemeSwitch from '@/components/themeSwitch';
+import ThemeSwitch from '../themeSwitch';
 
 export default function Nav() {
     return (
