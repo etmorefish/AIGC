@@ -26,6 +26,9 @@ const WeiBo = () => {
         method: 'POST',
       });
       const responseData: WeiBoData = await response.json();
+      if (responseData.code !== 200) {
+        throw new Error(responseData.message);
+      }
       setData(responseData);
     } catch (error) {
       console.error('Error fetching data:', error);
