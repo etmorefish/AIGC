@@ -44,7 +44,7 @@ const Input = (props: Props) => {
 
     payload = [...conversations, currentQuestion];
     let n = 3;
-     // 过滤字段,只保留 schema 定义的
+    // 过滤字段,只保留 schema 定义的
     payload = payload.map(msg => ({
       role: msg.role,
       content: msg.content
@@ -204,7 +204,7 @@ const Input = (props: Props) => {
         >
           {submitLoading ? "Waiting" : "Submit"}
         </button> */}
-      <div className="flex flex-col-reverse px-2 justify-between">
+      <div className="flex flex-col-reverse justify-between px-2">
         <div>
           <Image
             src={"/send.svg"}

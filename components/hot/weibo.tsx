@@ -46,7 +46,7 @@ const WeiBo = () => {
   const displayedData = data.data.slice(0, 15); // 仅显示前15条记录
 
   return (
-    <div className="hot-card h-96 overflow-auto">
+    <div className="overflow-auto hot-card h-96">
       <h1>{data.title}</h1>
       <h2>{data.subtitle}</h2>
       <ul>
