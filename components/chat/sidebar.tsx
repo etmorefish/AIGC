@@ -10,17 +10,16 @@ export default function Sidebar() {
   const { sidebarCollapsed, setSidebarCollapsed, handleSidebarClick } = useContext(sideContext);
 
   return (
-    <div className={`${
-      sidebarCollapsed
-        ? "hidden transition-all duration-1000 ease-in"
-        : "flex transition-all duration-1000 ease-out"
-    }  flex-col bg-[#059669] p-2 w-96 `}>
+    <div className={`${sidebarCollapsed
+      ? "hidden transition-all duration-1000 ease-in"
+      : "flex transition-all duration-1000 ease-out"
+      }  flex-col bg-[#059669] p-2 w-96 `}>
       <div className="flex justify-between ">
         <div className="flex-1 p-2 m-2 text-white border border-black rounded-md">
           + new one
         </div>
         <p
-          className="p-2 m-2 pt-3 border border-md border-black hover:bg-slate-100"
+          className="p-2 pt-3 m-2 border border-black border-md hover:bg-slate-100"
           onClick={handleSidebarClick}
         >
           <Image

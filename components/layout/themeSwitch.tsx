@@ -1,18 +1,16 @@
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function IndexPage() {
-    const { theme, setTheme } = useTheme()
-    return (
-        <>
-            <button
-                className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
-                onClick={() => {
-                    setTheme(theme === 'light' ? 'dark' : 'light')
-                }}
-            >
-                Change Theme
-            </button>
-        </>
-    )
+  const { theme, setTheme } = useTheme();
+  return (
+    <button
+      className="p-1 px-4 text-sm text-white transition-all bg-black border border-black rounded-full hover:bg-white hover:text-black"
+      onClick={() => {
+        setTheme(theme === "light" ? "dark" : "light");
+      }}
+    >
+      Change Theme
+    </button>
+  );
 }

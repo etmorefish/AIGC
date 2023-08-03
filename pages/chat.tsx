@@ -65,7 +65,7 @@ const chat = () => {
         }}
       >
         {/* <main className="w-full h-screen"> */}
-        <div className="flex flex-1  dark:text-gray-100 h-full">
+        <div className="flex flex-1 h-full dark:text-gray-100">
           {/* <!-- sidebar --> */}
           <sideContext.Provider
             value={{
@@ -78,12 +78,11 @@ const chat = () => {
           </sideContext.Provider>
 
           {/* <!-- main content --> */}
-          <div className="flex flex-1 flex-col">
+          <div className="flex flex-col flex-1">
             {/* <!-- chat content --> */}
             <p
-              className={`${
-                sidebarCollapsed ? "" : "hidden"
-              } absolute p-2 m-2 pt-3 border border-md border-black hover:bg-slate-100`}
+              className={`${sidebarCollapsed ? "" : "hidden"
+                } absolute p-2 m-2 pt-3 border border-md border-black hover:bg-slate-100`}
               onClick={handleSidebarClick}
             >
               <Image

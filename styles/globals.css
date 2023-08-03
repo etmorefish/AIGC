@@ -5,7 +5,7 @@
 
 /* -----------------------------------start index page css---------------------------- */
 .index__cards-wrapper {
-  @apply grid 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 grid-cols-1  gap-16 px-28 pt-8;
+  @apply grid grid-cols-1 gap-16 pt-8 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 px-28;
 }
 
 
@@ -21,7 +21,7 @@
 
 /* -----------------------------------start hot page css---------------------------- */
 .hot__cards-wrapper {
-  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 p-14;
+  @apply grid w-full grid-cols-1 gap-8 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 p-14;
 }
 .hot-card{
   @apply p-1

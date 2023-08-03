@@ -6,8 +6,8 @@ const Hot = () => {
     <>
       <Link href="/hot">
         <div className="flex  bg-[#F2B32D] h-96 rounded-3xl">
-          <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition  sm:p-4">
-            <div className="justify-between flex">
+          <article className="relative flex flex-col w-full p-6 transition rounded-3xl ring-1 ring-neutral-950/5 sm:p-4">
+            <div className="flex justify-between">
               <div className="flex">
                 <span className="text-[24px] text-white mr-3">热搜榜</span>
                 <Image

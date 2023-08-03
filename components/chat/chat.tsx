@@ -33,7 +33,7 @@ export const Chat = (props: Props) => {
             <div key={index} className="flex justify-end ">
               <div className="max-w-[75%] mr-4 p-2 rounded bg-gray-100 dark:bg-slate-900">
                 <p>{item.content}</p>
-                <p className="text-right text-xs text-gray-500">
+                <p className="text-xs text-right text-gray-500">
                   {/* 7/25/2023, 9:46:06 PM */}
                 </p>
               </div>
@@ -54,7 +54,7 @@ export const Chat = (props: Props) => {
             <div className="relative max-w-[75%] ml-4 p-4 rounded bg-gray-100 dark:bg-slate-900">
               {/* <ReactMarkdown >{item.content}</ReactMarkdown> */}
               <ReactMarkdown
-                className="ml-2 flex-grow overflow-x-auto overflow-y-hidden whitespace-pre-wrap"
+                className="flex-grow ml-2 overflow-x-auto overflow-y-hidden whitespace-pre-wrap"
                 linkTarget="_blank"
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -73,7 +73,7 @@ export const Chat = (props: Props) => {
                         >
                           {String(children).replace(/\n$/, "")}
                         </SyntaxHighlighter>
-                        <div className="absolute right-0 top-1 mr-1 cursor-pointer rounded bg-slate-50 p-1 dark:bg-slate-700">
+                        <div className="absolute right-0 p-1 mr-1 rounded cursor-pointer top-1 bg-slate-50 dark:bg-slate-700">
                           <CopyBtn
                             text={String(children).replace(/\n$/, "")}
                             dark={dark}
@@ -90,13 +90,13 @@ export const Chat = (props: Props) => {
               >
                 {item.content.replace(/^\s+/, "").replace(/\n\n/g, "\n")}
               </ReactMarkdown>
-              <div className="absolute right-0 top-1 mr-1 cursor-pointer">
+              <div className="absolute right-0 mr-1 cursor-pointer top-1">
                 <CopyBtn
                   text={item.content.replace(/^\s+/, "").replace(/\n\n/g, "\n")}
                   dark={dark}
                 />
               </div>
-              <p className="text-left text-xs text-gray-500">
+              <p className="text-xs text-left text-gray-500">
                 {    // 解析字符串为Date对象
                   FormatDate(item.date)
                 }
