@@ -15,11 +15,11 @@ export default function Sidebar() {
       : "flex transition-all duration-1000 ease-out"
       }  flex-col bg-[#059669] p-2 w-96 `}>
       <div className="flex justify-between ">
-        <div className="flex-1 p-2 m-2 text-white border border-black rounded-md">
+        <div className="flex-1 p-2 m-2 text-black bg-white rounded-md">
           + new one
         </div>
         <p
-          className="p-2 pt-3 m-2 border border-black border-md hover:bg-slate-100"
+          className="p-2 pt-3 m-2 border border-white border-md hover:bg-slate-100"
           onClick={handleSidebarClick}
         >
           <Image
@@ -44,7 +44,7 @@ export default function Sidebar() {
         </ul>
       </div>
 
-      <div>userinfo</div>
+      <div></div>
     </div>
   );
 }

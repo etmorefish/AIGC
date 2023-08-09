@@ -16,6 +16,8 @@ export const Chat = (props: Props) => {
   const { conversations, saving } = props;
   const bottomRef = useRef<null | HTMLDivElement>(null);
   const [dark, setDark] = useState(false);
+  // const showCopyMap = useRef(new Map()).current;
+  const [showCopy, setShowCopy] = useState(false);
 
   useEffect(() => {
     if (bottomRef.current && conversations.length > 2) {
@@ -27,6 +29,9 @@ export const Chat = (props: Props) => {
     <div className="flex-1 px-10 pt-10 overflow-y-auto" id="save-as-image">
       {/* 显示消息 */}
       {conversations.map((item, index) => {
+        const onMouseEnter = () => setShowCopy(true);
+        const onMouseLeave = () => setShowCopy(false);
+
         // 用户消息
         if (item.role === ROLES.USER) {
           return (
@@ -37,10 +42,14 @@ export const Chat = (props: Props) => {
                   {/* 7/25/2023, 9:46:06 PM */}
                 </p>
               </div>
-              <img
+              {/* <img
                 className="w-10 h-10  p-2 pr-1 rounded-full bg-[#059669]"
                 src="me.svg"
-              />
+              /> */}
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#059669]">
+                <p className="text-center">me</p>
+              </div>
+
             </div>
           );
         }
@@ -51,7 +60,10 @@ export const Chat = (props: Props) => {
               className="w-10 h-10 rounded-full dark:bg-white"
               src="bot.svg"
             />
-            <div className="relative max-w-[75%] ml-4 p-4 rounded bg-gray-100 dark:bg-slate-900">
+            <div className="relative max-w-[75%] ml-4 p-4 rounded bg-gray-100 dark:bg-slate-900"
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
               {/* <ReactMarkdown >{item.content}</ReactMarkdown> */}
               <ReactMarkdown
                 className="flex-grow ml-2 overflow-x-auto overflow-y-hidden whitespace-pre-wrap"
@@ -91,12 +103,14 @@ export const Chat = (props: Props) => {
                 {item.content.replace(/^\s+/, "").replace(/\n\n/g, "\n")}
               </ReactMarkdown>
               <div className="absolute right-0 mr-1 cursor-pointer top-1">
-                <CopyBtn
-                  text={item.content.replace(/^\s+/, "").replace(/\n\n/g, "\n")}
-                  dark={dark}
-                />
+                {showCopy && (
+                  <CopyBtn
+                    text={item.content}
+                    dark={dark}
+                  />
+                )}
               </div>
-              <p className="text-xs text-left text-gray-500">
+              <p className="ml-2 text-xs text-left text-gray-500">
                 {    // 解析字符串为Date对象
                   FormatDate(item.date)
                 }

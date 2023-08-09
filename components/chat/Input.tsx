@@ -4,6 +4,7 @@ import Image from "next/image";
 import { toPng } from "html-to-image";
 import download from "downloadjs";
 import { useRouter } from "next/router";
+import ConfirmBox from "./ConfirmBox";
 
 interface Props {
   conversations: Conversation[];
@@ -137,7 +138,8 @@ const Input = (props: Props) => {
   }
 
   function handleKeyDown(event: any) {
-    if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+    // if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+    if (event.key === "Enter") {
       event.preventDefault();
 
       if (!submitLoading) {
@@ -216,7 +218,7 @@ const Input = (props: Props) => {
             className=""
           ></Image>
         </div>
-        <div>
+        {/* <div>
           <Image
             src={"/save_image.svg"}
             alt={"save_image"}
@@ -226,7 +228,7 @@ const Input = (props: Props) => {
             title={"Save to image"}
             className=""
           ></Image>
-        </div>
+        </div> */}
         <div>
           <Image
             src={"/trash.svg"}
